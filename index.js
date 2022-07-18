@@ -32,32 +32,30 @@ function showPage(id) {
   document.getElementById(id).style.display = "block";
 }
 
-function showHomePage() {
-  showPage("home");
+function hideAllPages() {
+  hidePage("home");
   hidePage("skills");
   hidePage("projects");
   hidePage("languages");
+}
+
+function showHomePage() {
+  hideAllPages();
+  showPage("home");
 }
 
 function showSkillsPage() {
-  hidePage("home");
-  hidePage("projects");
+  hideAllPages();
   showPage("skills");
-
-  hidePage("languages");
 }
 
 function showProjectsPage() {
-  hidePage("home");
-  hidePage("skills");
+  hideAllPages();
   showPage("projects");
-  hidePage("languages");
 }
 
 function showLanguagesPage() {
-  hidePage("home");
-  hidePage("skills");
-  hidePage("projects");
+  hideAllPages();
   showPage("languages");
 }
 
