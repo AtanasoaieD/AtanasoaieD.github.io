@@ -20,7 +20,7 @@ console.info(mottoElement);
 console.warn(mottoElement.innerHTML);
 
 // mottoElement.innerHTML = mottoElement.innerHTML + "&" + jobTitle;
-mottoElement.innerHTML += "&" + jobTitle;
+// mottoElement.innerHTML += "&" + jobTitle;
 
 function hide(id) {
   console.info("hide", id);
