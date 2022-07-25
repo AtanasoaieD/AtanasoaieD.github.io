@@ -130,6 +130,13 @@ p {
   transition: 0.5;
 }
 
+#top-menu-bar a.active{
+  
+  background: #ff0;
+  color: #334455;
+}
+
+
 .page {
   
   display:none;
