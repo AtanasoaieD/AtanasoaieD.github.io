@@ -1,7 +1,7 @@
 console.info(2);
 console.debug(23 + 3);
 console.warn(6 * 3 - 10);
-console.error("app started");
+console.warn("app started");
 
 var myName = "Dan";
 var age = 19;
@@ -38,11 +38,24 @@ function showPage(nextPage) {
   console.warn("change", activePage, "to", nextPage);
   hide(activePage);
   show(nextPage);
-  console.warn("preview page", activePage);
-  document.getElementById("menu-" + activePage).classList.remove("active");
-
-  document.getElementById("menu-" + nextPage).classList.add("active");
+  document
+    .querySelector(`a[data-page=${activePage}]`)
+    .classList.remove("active");
+  document.querySelector(`a[data-page=${nextPage}]`).classList.add("active");
   activePage = nextPage;
 }
 
+function initEvents() {
+  document
+    .getElementById("top-menu-bar")
+    .addEventListener("click", function (e) {
+      if (e.target.matches("a")) {
+        var id = e.target.getAttribute("data-page");
+        console.warn("click pe meniu", id);
+        showPage(id);
+      }
+    });
+}
+
 showPage(activePage);
+initEvents();
