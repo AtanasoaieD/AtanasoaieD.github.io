@@ -62,18 +62,32 @@ initEvents();
 // initializare ; conditie ; post executie
 
 function displaySkills() {
-  console.info("display skills");
-
-  for (var i = 1; i < 5; i++) {
-    console.info(`${i} * 5 = ${i * 5}`);
-  }
-  // i = i + 1;
   var ul = document.querySelector("#skills ul");
-  var skills = ["html", "css", "js", "rubik"];
-  console.info(ul);
+
+  skills.sort(function (a, b) {
+    return b.endorcements - a.endorcements;
+    //   if (a.name.toLowerCase() < b.name.toLowerCase()) {
+    //     return -1;
+    //   }
+    //   if (a.name.toLowerCase() > b.name.toLowerCase()) {
+    //     return 1;
+    //   }
+    //   return 0;
+  });
+  console.info(skills);
   for (var i = 0; i < skills.length; i++) {
-    // ul.innerHTML = ul.innerHTML`<li>${skills[i]}</li>`;
-    ul.innerHTML += `<li>${skills[i]}</li>`;
+    ul.innerHTML += `<li>${skills[i].name} - ${skills[i].endorcemets}</li>`;
   }
 }
-displaySkills();
+
+function loadSkills() {
+  fetch("skills.json")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (serverSkills) {
+      console.warn(serverSkills);
+    });
+}
+
+loadSkills();
